@@ -81,3 +81,7 @@ export function toShortDate(date: Date = DEFAULT_DATE) {
   return formatDate(date, 'short');
 }
 // ------------------------------------------------------------------------------------------------
+export function hasElements(collection: any[]) {
+  return collection.length > ZERO;
+}
+// ------------------------------------------------------------------------------------------------
