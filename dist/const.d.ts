@@ -1,0 +1,10 @@
+export declare const DEFAULT_DATE: Date;
+export declare const ZERO: number;
+export declare const EMPTY_ARRAY: any[];
+export declare const EMPTY_STRING: string;
+export declare const EMPTY_OBJECT: any;
+export declare const FALSE: boolean;
+export declare const TRUE: boolean;
+export declare const NULL: null;
+export declare const NUMERIC_EXPRESSION: RegExp;
+export declare const EMPTY_SPACES_EXPRESSION: RegExp;
