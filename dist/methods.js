@@ -15,6 +15,7 @@ exports.toFullDate = toFullDate;
 exports.toLongDate = toLongDate;
 exports.toMediumDate = toMediumDate;
 exports.toShortDate = toShortDate;
+exports.hasElements = hasElements;
 // ------------------------------------------------------------------------------------------------
 const const_1 = require("./const");
 // ------------------------------------------------------------------------------------------------
@@ -86,5 +87,9 @@ function toMediumDate(date = const_1.DEFAULT_DATE) {
 // ------------------------------------------------------------------------------------------------
 function toShortDate(date = const_1.DEFAULT_DATE) {
     return formatDate(date, 'short');
+}
+// ------------------------------------------------------------------------------------------------
+function hasElements(collection) {
+    return collection.length > const_1.ZERO;
 }
 // ------------------------------------------------------------------------------------------------

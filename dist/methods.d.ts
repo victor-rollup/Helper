@@ -16,4 +16,5 @@ export declare function toFullDate(date?: Date): string;
 export declare function toLongDate(date?: Date): string;
 export declare function toMediumDate(date?: Date): string;
 export declare function toShortDate(date?: Date): string;
+export declare function hasElements(collection: any[]): boolean;
 export {};
