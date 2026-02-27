@@ -70,7 +70,7 @@ function toCurrency(value, currency = 'MXN') {
 function formatDate(date = const_1.DEFAULT_DATE, dateStyle) {
     return Intl.DateTimeFormat(LOCALE_TIME_ZONE, {
         dateStyle,
-    }).format(date);
+    }).format(new Date(date));
 }
 // ------------------------------------------------------------------------------------------------
 function toFullDate(date = const_1.DEFAULT_DATE) {

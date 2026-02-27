@@ -7,6 +7,7 @@ import {
   ZERO,
 } from './const';
 // ------------------------------------------------------------------------------------------------
+type date = string | Date | undefined;
 type time_unit = Intl.RelativeTimeFormatUnit;
 type time_format = Intl.DateTimeFormatOptions['dateStyle'];
 type currency_unit = 'MXN' | 'USD' | 'EUR';
@@ -59,25 +60,25 @@ export function toCurrency(value: number, currency: currency_unit = 'MXN') {
   }).format(value);
 }
 // ------------------------------------------------------------------------------------------------
-export function formatDate(date: Date = DEFAULT_DATE, dateStyle: time_format) {
+export function formatDate(date: date = DEFAULT_DATE, dateStyle: time_format) {
   return Intl.DateTimeFormat(LOCALE_TIME_ZONE, {
     dateStyle,
-  }).format(date);
+  }).format(new Date(date));
 }
 // ------------------------------------------------------------------------------------------------
-export function toFullDate(date: Date = DEFAULT_DATE) {
+export function toFullDate(date: date = DEFAULT_DATE) {
   return formatDate(date, 'full');
 }
 // ------------------------------------------------------------------------------------------------
-export function toLongDate(date: Date = DEFAULT_DATE) {
+export function toLongDate(date: date = DEFAULT_DATE) {
   return formatDate(date, 'long');
 }
 // ------------------------------------------------------------------------------------------------
-export function toMediumDate(date: Date = DEFAULT_DATE) {
+export function toMediumDate(date: date = DEFAULT_DATE) {
   return formatDate(date, 'medium');
 }
 // ------------------------------------------------------------------------------------------------
-export function toShortDate(date: Date = DEFAULT_DATE) {
+export function toShortDate(date: date = DEFAULT_DATE) {
   return formatDate(date, 'short');
 }
 // ------------------------------------------------------------------------------------------------
