@@ -67,25 +67,25 @@ function toCurrency(value, currency = 'MXN') {
     }).format(value);
 }
 // ------------------------------------------------------------------------------------------------
-function formatDate(date = const_1.DEFAULT_DATE, dateStyle) {
+function formatDate(date = const_1.EMPTY_STRING, dateStyle) {
     return Intl.DateTimeFormat(LOCALE_TIME_ZONE, {
         dateStyle,
-    }).format(new Date(date));
+    }).format(new Date(`${date}T00:00:00`));
 }
 // ------------------------------------------------------------------------------------------------
-function toFullDate(date = const_1.DEFAULT_DATE) {
+function toFullDate(date = const_1.EMPTY_STRING) {
     return formatDate(date, 'full');
 }
 // ------------------------------------------------------------------------------------------------
-function toLongDate(date = const_1.DEFAULT_DATE) {
+function toLongDate(date = const_1.EMPTY_STRING) {
     return formatDate(date, 'long');
 }
 // ------------------------------------------------------------------------------------------------
-function toMediumDate(date = const_1.DEFAULT_DATE) {
+function toMediumDate(date = const_1.EMPTY_STRING) {
     return formatDate(date, 'medium');
 }
 // ------------------------------------------------------------------------------------------------
-function toShortDate(date = const_1.DEFAULT_DATE) {
+function toShortDate(date = const_1.EMPTY_STRING) {
     return formatDate(date, 'short');
 }
 // ------------------------------------------------------------------------------------------------

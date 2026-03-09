@@ -1,13 +1,12 @@
 // ------------------------------------------------------------------------------------------------
 import {
-  DEFAULT_DATE,
-  EMPTY_SPACES_EXPRESSION,
   EMPTY_STRING,
+  EMPTY_SPACES_EXPRESSION,
   NUMERIC_EXPRESSION,
   ZERO,
 } from './const';
 // ------------------------------------------------------------------------------------------------
-type date = string | Date | undefined;
+type date = string | undefined;
 type time_unit = Intl.RelativeTimeFormatUnit;
 type time_format = Intl.DateTimeFormatOptions['dateStyle'];
 type currency_unit = 'MXN' | 'USD' | 'EUR';
@@ -60,25 +59,25 @@ export function toCurrency(value: number, currency: currency_unit = 'MXN') {
   }).format(value);
 }
 // ------------------------------------------------------------------------------------------------
-export function formatDate(date: date = DEFAULT_DATE, dateStyle: time_format) {
+export function formatDate(date: date = EMPTY_STRING, dateStyle: time_format) {
   return Intl.DateTimeFormat(LOCALE_TIME_ZONE, {
     dateStyle,
-  }).format(new Date(date));
+  }).format(new Date(`${date}T00:00:00`));
 }
 // ------------------------------------------------------------------------------------------------
-export function toFullDate(date: date = DEFAULT_DATE) {
+export function toFullDate(date: date = EMPTY_STRING) {
   return formatDate(date, 'full');
 }
 // ------------------------------------------------------------------------------------------------
-export function toLongDate(date: date = DEFAULT_DATE) {
+export function toLongDate(date: date = EMPTY_STRING) {
   return formatDate(date, 'long');
 }
 // ------------------------------------------------------------------------------------------------
-export function toMediumDate(date: date = DEFAULT_DATE) {
+export function toMediumDate(date: date = EMPTY_STRING) {
   return formatDate(date, 'medium');
 }
 // ------------------------------------------------------------------------------------------------
-export function toShortDate(date: date = DEFAULT_DATE) {
+export function toShortDate(date: date = EMPTY_STRING) {
   return formatDate(date, 'short');
 }
 // ------------------------------------------------------------------------------------------------

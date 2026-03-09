@@ -1,4 +1,4 @@
-type date = string | Date | undefined;
+type date = string | undefined;
 type time_unit = Intl.RelativeTimeFormatUnit;
 type time_format = Intl.DateTimeFormatOptions['dateStyle'];
 type currency_unit = 'MXN' | 'USD' | 'EUR';
