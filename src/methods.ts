@@ -6,7 +6,7 @@ import {
   ZERO,
 } from './const';
 // ------------------------------------------------------------------------------------------------
-type date = string | undefined;
+type date = string | Date | undefined;
 type time_unit = Intl.RelativeTimeFormatUnit;
 type time_format = Intl.DateTimeFormatOptions['dateStyle'];
 type currency_unit = 'MXN' | 'USD' | 'EUR';
@@ -60,6 +60,12 @@ export function toCurrency(value: number, currency: currency_unit = 'MXN') {
 }
 // ------------------------------------------------------------------------------------------------
 export function formatDate(date: date = EMPTY_STRING, dateStyle: time_format) {
+  if (date instanceof Date) {
+    return Intl.DateTimeFormat(LOCALE_TIME_ZONE, {
+      dateStyle,
+    }).format(date);
+  }
+  
   return Intl.DateTimeFormat(LOCALE_TIME_ZONE, {
     dateStyle,
   }).format(new Date(`${date}T00:00:00`));

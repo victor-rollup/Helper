@@ -68,6 +68,11 @@ function toCurrency(value, currency = 'MXN') {
 }
 // ------------------------------------------------------------------------------------------------
 function formatDate(date = const_1.EMPTY_STRING, dateStyle) {
+    if (date instanceof Date) {
+        return Intl.DateTimeFormat(LOCALE_TIME_ZONE, {
+            dateStyle,
+        }).format(date);
+    }
     return Intl.DateTimeFormat(LOCALE_TIME_ZONE, {
         dateStyle,
     }).format(new Date(`${date}T00:00:00`));
