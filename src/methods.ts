@@ -6,7 +6,7 @@ import {
   ZERO,
 } from './const';
 // ------------------------------------------------------------------------------------------------
-type date = string | Date | undefined;
+type date = number | Date | undefined;
 type time_unit = Intl.RelativeTimeFormatUnit;
 type time_format = Intl.DateTimeFormatOptions['dateStyle'];
 type currency_unit = 'MXN' | 'USD' | 'EUR';
@@ -59,31 +59,25 @@ export function toCurrency(value: number, currency: currency_unit = 'MXN') {
   }).format(value);
 }
 // ------------------------------------------------------------------------------------------------
-export function formatDate(date: date = EMPTY_STRING, dateStyle: time_format) {
-  if (date instanceof Date) {
-    return Intl.DateTimeFormat(LOCALE_TIME_ZONE, {
-      dateStyle,
-    }).format(date);
-  }
-  
+export function formatDate(date: date = ZERO, dateStyle: time_format) {
   return Intl.DateTimeFormat(LOCALE_TIME_ZONE, {
     dateStyle,
-  }).format(new Date(`${date}T00:00:00`));
+  }).format(new Date(date));
 }
 // ------------------------------------------------------------------------------------------------
-export function toFullDate(date: date = EMPTY_STRING) {
+export function toFullDate(date: date = ZERO) {
   return formatDate(date, 'full');
 }
 // ------------------------------------------------------------------------------------------------
-export function toLongDate(date: date = EMPTY_STRING) {
+export function toLongDate(date: date = ZERO) {
   return formatDate(date, 'long');
 }
 // ------------------------------------------------------------------------------------------------
-export function toMediumDate(date: date = EMPTY_STRING) {
+export function toMediumDate(date: date = ZERO) {
   return formatDate(date, 'medium');
 }
 // ------------------------------------------------------------------------------------------------
-export function toShortDate(date: date = EMPTY_STRING) {
+export function toShortDate(date: date = ZERO) {
   return formatDate(date, 'short');
 }
 // ------------------------------------------------------------------------------------------------
